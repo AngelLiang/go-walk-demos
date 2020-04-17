@@ -15,7 +15,7 @@ type MyWindow struct {
 
 func CreateMyWindow() *MyWindow {
 	mw, err := walk.NewMainWindow()
-    if err != nil {
+  if err != nil {
 		log.Fatal(err)
 	}
 
@@ -42,10 +42,10 @@ func (mw *MyWindow) WndProc(hwnd win.HWND, msg uint32, wParam, lParam uintptr) u
 			// 最小化恢复： wParam=1 lParam=20472
 			// 右上角关闭： wParam=0 lParam=16752
 			fmt.Printf("WM_ACTIVATEAPP wParam=%v lParam=%v\n", wParam, lParam)
-		case win.WM_COMMAND:
-			fmt.Println("WM_COMMAND")
 		case win.WM_CLOSE:
 			fmt.Printf("WM_CLOSE")
+		case win.WM_COMMAND:
+			fmt.Println("WM_COMMAND")
 		case win.WM_SYSCOMMAND:
 			fmt.Printf("WM_SYSCOMMAND")
 	}
